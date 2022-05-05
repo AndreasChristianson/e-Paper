@@ -47,7 +47,7 @@ try:
     while True:
       Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
       draw = ImageDraw.Draw(Himage)
-      draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), font = font18)
+      draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M"), font = font18)
       
 
       epd.display(epd.getbuffer(Himage))
@@ -65,7 +65,6 @@ try:
       # draw.arc((70, 140, 120, 190), 0, 360, fill = epd.GRAY1)
       # draw.rectangle((10, 200, 60, 250), fill = epd.GRAY1)
       # draw.chord((70, 200, 120, 250), 0, 360, fill = epd.GRAY1)
-      epd.display(epd.getbuffer_4Gray(Himage))
 
       # Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
       # draw = ImageDraw.Draw(Himage)
