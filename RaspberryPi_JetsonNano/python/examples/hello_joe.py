@@ -17,7 +17,7 @@ import traceback
 logging.basicConfig(level=logging.DEBUG)
 
 def wait_until_next_minute():
-  end_datetime = (datetime.now()+timedelta(minutes=1)).replace(microsecond=0, second=0, minute=0)
+  end_datetime = (datetime.now()+timedelta(minutes=1)).replace(microsecond=0, second=0)
   while True:
     diff = (end_datetime - datetime.now()).total_seconds()
     # if diff < 0: return       # In case end_datetime was in past to begin with
@@ -47,7 +47,7 @@ try:
     while True:
       Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
       draw = ImageDraw.Draw(Himage)
-      draw.text((10, 265), datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), font = font35)
+      draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), font = font18)
       
 
       epd.display(epd.getbuffer(Himage))
