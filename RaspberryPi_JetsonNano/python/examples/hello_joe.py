@@ -47,7 +47,7 @@ try:
     while True:
       Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
       draw = ImageDraw.Draw(Himage)
-      draw.text((10, 265), datetime.now(), font = font35)
+      draw.text((10, 265), datetime.now().strftime("%m/%d/%Y, %H:%M:%S"), font = font35)
       
 
       epd.display(epd.getbuffer(Himage))
