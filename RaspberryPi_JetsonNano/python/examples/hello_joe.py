@@ -26,10 +26,7 @@ def wait_until_next_minute():
 
 try:
     epd = epd4in2.EPD()
-    logging.info("init and Clear")
-    epd.init()
-   
-    epd.Clear()
+
     
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
@@ -45,6 +42,10 @@ try:
     # draw.text((100, 240), u'I love you ♡', font = font35)
 
     while True:
+      logging.info("init and Clear")
+      epd.init()
+    
+      epd.Clear()
       Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
       draw = ImageDraw.Draw(Himage)
       draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M"), font = font18)
