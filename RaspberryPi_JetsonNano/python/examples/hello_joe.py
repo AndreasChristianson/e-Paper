@@ -35,7 +35,7 @@ try:
     # draw.text((20, 190), u'Make yourself breakfast and do your reading', font = font18)
     # draw.text((100, 240), u'I love you ♡', font = font35)
 
-    Himage = Image.open(os.path.join(picdir, 'bomb.bmp'))
+    Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
     draw = ImageDraw.Draw(Himage)
     draw.text((0, 282), u'Nuke', font = font18)
 
