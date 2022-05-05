@@ -27,7 +27,7 @@ try:
     font35 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 35)
     font80 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 120)
 
-    # Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+    Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
     # draw = ImageDraw.Draw(Himage)
 
     # draw.text((20, 0), u'Joe!', font = font80)
@@ -35,9 +35,11 @@ try:
     # draw.text((20, 190), u'Make yourself breakfast and do your reading', font = font18)
     # draw.text((100, 240), u'I love you ♡', font = font35)
 
-    Himage = Image.open(os.path.join(picdir, 'Bomb.xbm'))
+    # Himage = Image.open(os.path.join(picdir, 'Bomb.xbm'))
     draw = ImageDraw.Draw(Himage)
-    draw.text((0, 282), u'Nuke', font = font18)
+    draw.text((40, 40), u'ATOMIC BOMB', font = font35)
+    draw.text((100, 100), u'💣', font = font80)
+    
 
     epd.display(epd.getbuffer(Himage))
     # time.sleep(2)
