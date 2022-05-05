@@ -18,17 +18,31 @@ logging.basicConfig(level=logging.DEBUG)
 try:
     epd = epd4in2.EPD()
     logging.info("init and Clear")
-    epd.Init_4Gray()
+    epd.init()
+   
     epd.Clear()
     
     font24 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 24)
     font18 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 18)
     font35 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 35)
-    
+    font80 = ImageFont.truetype(os.path.join(picdir, 'Font.ttc'), 120)
 
-    Limage = Image.new('L', (epd.width, epd.height), 0)  # 255: clear the frame
-    draw = ImageDraw.Draw(Limage)
-    draw.text((20, 0), u'Joe', font = font35, fill = epd.BLACK)
+    # Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+    # draw = ImageDraw.Draw(Himage)
+
+    # draw.text((20, 0), u'Joe!', font = font80)
+    # draw.text((20, 155), u'I got this working last night.', font = font18)
+    # draw.text((20, 190), u'Make yourself breakfast and do your reading', font = font18)
+    # draw.text((100, 240), u'I love you ♡', font = font35)
+
+    Himage = Image.open(os.path.join(picdir, 'bomb.bmp'))
+    draw = ImageDraw.Draw(Himage)
+    draw.text((0, 282), u'Nuke', font = font18)
+
+    epd.display(epd.getbuffer(Himage))
+    # time.sleep(2)
+
+    
     # draw.text((20, 35), u'微雪电子', font = font35, fill = epd.GRAY2)
     # draw.text((20, 70), u'微雪电子', font = font35, fill = epd.GRAY3)
     # draw.text((40, 110), 'hello world', font = font18, fill = epd.GRAY1)
@@ -40,13 +54,27 @@ try:
     # draw.arc((70, 140, 120, 190), 0, 360, fill = epd.GRAY1)
     # draw.rectangle((10, 200, 60, 250), fill = epd.GRAY1)
     # draw.chord((70, 200, 120, 250), 0, 360, fill = epd.GRAY1)
-    epd.display_4Gray(epd.getbuffer_4Gray(Limage))
+    epd.display_4Gray(epd.getbuffer_4Gray(Himage))
+
+    # Himage = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
+    # draw = ImageDraw.Draw(Himage)
+    # draw.text((10, 0), 'hello world', font = font24, fill = 0)
+    # draw.text((10, 20), '4.2inch e-Paper', font = font24, fill = 0)
+    # draw.text((150, 0), u'微雪电子', font = font24, fill = 0)    
+    # draw.line((20, 50, 70, 100), fill = 0)
+    # draw.line((70, 50, 20, 100), fill = 0)
+    # draw.rectangle((20, 50, 70, 100), outline = 0)
+    # draw.line((165, 50, 165, 100), fill = 0)
+    # draw.line((140, 75, 190, 75), fill = 0)
+    # draw.arc((140, 50, 190, 100), 0, 360, fill = 0)
+    # draw.rectangle((80, 50, 130, 100), fill = 0)
+    # draw.chord((200, 50, 250, 100), 0, 360, fill = 0)
+    # epd.display(epd.getbuffer(Himage))
 
 
     logging.info("Goto Sleep...")
     epd.sleep()
     
-    # Drawing on the Vertical image
     
 except IOError as e:
     logging.info(e)
