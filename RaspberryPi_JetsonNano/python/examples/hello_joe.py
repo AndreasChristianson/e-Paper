@@ -51,7 +51,6 @@ try:
       
 
       epd.display(epd.getbuffer(Himage))
-      wait_until_next_minute()
       # time.sleep(2)
 
       
