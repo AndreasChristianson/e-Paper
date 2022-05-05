@@ -38,7 +38,7 @@ try:
     # Himage = Image.open(os.path.join(picdir, 'Bomb.xbm'))
     draw = ImageDraw.Draw(Himage)
     draw.text((40, 40), u'ATOMIC BOMB', font = font35)
-    draw.text((100, 100), u'💣', font = font80)
+    draw.text((100, 100), u'💥', font = font80)
     
 
     epd.display(epd.getbuffer(Himage))
