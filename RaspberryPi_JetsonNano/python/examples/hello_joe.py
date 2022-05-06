@@ -41,17 +41,41 @@ try:
     # draw.text((20, 190), u'Make yourself breakfast and do your reading', font = font18)
     # draw.text((100, 240), u'I love you ♡', font = font35)
 
-    while True:
-      logging.info("init and Clear")
-      epd.init()
-    
-      epd.Clear()
-      Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
-      draw = ImageDraw.Draw(Himage)
-      draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M"), font = font18)
-      
+    logging.info("init and Clear")
+    epd.init()
+  
+    epd.Clear()
+    Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
+    epd.display(epd.getbuffer(Himage))
 
-      epd.display(epd.getbuffer(Himage))
+    while True:
+      # logging.info("init and Clear")
+      # epd.init()
+    
+      # epd.Clear()
+      # Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
+      draw = ImageDraw.Draw(Himage)
+      epd.init_Partial() 
+
+      draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M"), font = font18)
+      epd.EPD_4IN2_PartialDisplay(10, 282, 100, 300, epd.getbuffer(Himage))
+
+      
+      # if(0):
+      #   print("Support for partial refresh, but the refresh effect is not good, but it is not recommended")
+      #   print("Local refresh is off by default and is not recommended.")
+      #   Himage3 = Image.new('1', (epd.width, epd.height), 0)  # 255: clear the frame
+      #   draw = ImageDraw.Draw(Himage3)
+      #   epd.init_Partial() 
+      #   for j in range(0, int(20)):
+      #       draw.rectangle((8, 80, 48, 155), fill = 255)
+      #       draw.text((8, 80), str(j) , font = font35, fill = 0)
+      #       draw.text((8, 120), str(20-j) , font = font35, fill = 0)
+      #       epd.EPD_4IN2_PartialDisplay(8, 80, 42, 155, epd.getbuffer(Himage3))
+      #       time.sleep(2);
+            
+    
+
       # time.sleep(2)
 
       
