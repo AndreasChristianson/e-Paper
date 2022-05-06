@@ -54,11 +54,12 @@ try:
     
       # epd.Clear()
       # Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
-      draw = ImageDraw.Draw(Himage)
+      Himage3 = Image.new('1', (epd.width, epd.height), 0)  # 255: clear the frame
+      draw = ImageDraw.Draw(Himage3)
       epd.init_Partial() 
 
       draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M"), font = font18)
-      epd.EPD_4IN2_PartialDisplay(0, 282, 160, 300, epd.getbuffer(Himage))
+      epd.EPD_4IN2_PartialDisplay(0, 282, 160, 300, epd.getbuffer(Himage3))
 
       
       # if(0):
