@@ -21,6 +21,7 @@ def wait_until_next_minute():
   while True:
     diff = (end_datetime - datetime.now()).total_seconds()
     # if diff < 0: return       # In case end_datetime was in past to begin with
+    logging.debug(datetime.now().strftime("sleeping: %H:%M:%S.%f"))
     time.sleep(diff/2)
     if diff <= 1: return
 
