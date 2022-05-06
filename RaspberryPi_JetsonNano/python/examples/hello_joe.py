@@ -58,7 +58,7 @@ try:
       epd.init_Partial() 
 
       draw.text((10, 282), datetime.now().strftime("%m/%d/%Y, %H:%M"), font = font18)
-      epd.EPD_4IN2_PartialDisplay(10, 282, 100, 300, epd.getbuffer(Himage))
+      epd.EPD_4IN2_PartialDisplay(0, 282, 160, 300, epd.getbuffer(Himage))
 
       
       # if(0):
