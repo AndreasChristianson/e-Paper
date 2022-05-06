@@ -54,7 +54,7 @@ try:
     
       # epd.Clear()
       # Himage = Image.open(os.path.join(picdir, 'Bomb.bmp'))
-      Himage3 = Image.new('1', (epd.width, epd.height), 0)  # 255: clear the frame
+      Himage3 = Image.new('1', (epd.width, epd.height), 255)  # 255: clear the frame
       draw = ImageDraw.Draw(Himage3)
       epd.init_Partial() 
 
